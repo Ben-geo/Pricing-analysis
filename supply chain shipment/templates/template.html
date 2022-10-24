@@ -1,0 +1,300 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Price Prediction</title>
+
+
+    <!-- BootStrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
+    <!-- css -->
+    <link rel="stylesheet" href="static/css/styles.css">
+
+
+</head>
+
+<body>
+
+    <!-- As a heading -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Shipment Price</a>
+            </div>
+        </div>
+    </nav>
+
+    <br><br><br>
+
+
+    <div class="container">
+
+
+
+           <form action="\predict" method="post">
+                <form action="/action_page.php">
+    <label for="UnitofMeasurePerPack">UnitofMeasurePerPack:</label>
+      <input type="number" id="quantity" name="quantity">
+     
+    </form>
+    <form action="\predict" method="post">
+                <form action="/action_page.php">
+      <label for="LineItemQuantity">LineItemQuantity:</label>
+      <input type="number" id="quantity" name="quantity">
+    </form>
+    <form action="\predict" method="post">
+                <form action="/action_page.php">
+      <label for="PackPrice">PackPrice:</label>
+      <input type="number" id="quantity" name="quantity" >
+     
+    </form>
+    <form action="\predict" method="post">
+                <form action="/action_page.php">
+      <label for="UnitPrice">UnitPrice:</label>
+      <input type="number" id="quantity" name="quantity">
+    
+    </form>
+     <form action="\predict" method="post">
+                <form action="/action_page.php">
+      <label for="WeightKilograms">WeightKilograms:</label>
+      <input type="number" id="quantity" name="quantity">
+ 
+    </form>
+     <form action="\predict" method="post">
+                <form action="/action_page.php">
+      <label for="FreightCostUSD">FreightCostUSD:</label>
+      <input type="number" id="quantity" name="quantity">
+
+    </form>
+
+            <br>
+            <br>
+            <br>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- Source -->
+                            <h5 class="card-title">ManagedBy</h5>
+                            <select name="ManagedBy" id="ManagedBy" required="required">
+                                <option value="PMO - US">PMO - US</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">FulfillVia</h5>
+                            <!-- Destination -->
+                            <select name="FulfillVia" id="FulfillVia" required="required">
+                                <option value="From RDC">From RDC</option>
+                                <option value="Direct Drop">Direct Drop</option>
+                        
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <br>
+            <br>
+            <br>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">VendorINCOTerm</h5>
+                            <!-- Total Stops -->
+                            <select name="VendorINCOTerm" required="required">
+                                <option value="N/A - From RDC">N/A - From RDC</option>
+                                <option value="EXW">EXW</option>
+                                <option value="DDP">DDP</option>
+                                <option value="FCA">FCA</option>
+                                <option value="CIP">CIP</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Country?</h5>
+                            <!-- Airline -->
+                            <select name="Country" id="Country" required="required">
+                                <option value="South Africa">South Africa</option>
+                                <option value="Nigeria">Nigeria</option>
+                                <option value="Uganda">Uganda</option>
+                                <option value="Vietnam">Vietnam</option>
+                                <option value="Zambia">Zambia</option>
+                                <option value="Haiti">Haiti</option>
+                                <option value="Mozambique">Mozambique</option>
+                                <option value="Zimbabwe">Zimbabwe</option>
+                                <option value="Tanzania">Tanzania</option>
+                                <option value="Rwanda">Rwanda</option>
+                                <option value="Congo, DRC">Congo, DRC</option>
+                                <option value="Guyana">Guyana</option>
+                                <option value="Ethiopia">Ethiopia</option>
+                                <option value="South Sudan">South Sudan</option>
+                                <option value="Kenya">Kenya</option>
+                                <option value="Burundi">Burundi</option>
+                                <option value="Namibia">Namibia</option>
+                                <option value="Cameroon">Cameroon</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">PQFirstSenttoClientDate</h5>
+                            <!-- Airline -->
+                            <select name="PQFirstSenttoClientDate" id="PQFirstSenttoClientDate" required="required">
+                                <option value="Pre-PQ Process">Pre-PQ Process</option>
+                                <option value="Other">Other</option>
+                                
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            <div class="col-sm-6">
+                <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">POSenttoVendorDate</h5>
+                            <!-- Airline -->
+                            <select name="POSenttoVendorDate" id="POSenttoVendorDate" required="required">
+                                <option value="N/A - From RDC">N/A - From RDC</option>
+                                <option value="Date Not Captured">Date Not Captured</option>
+                                <option value="Other">Other</option>
+                                
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Vendor</h5>
+                            <!-- Airline -->
+                            <select name="Vendor" id="Vendor" required="required">
+                                <option value="SCMS from RDC">SCMS from RDC</option>
+                                <option value="Other">Other</option>
+                                
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            <div class="col-sm-6">
+                <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">SubClassification</h5>
+                            <!-- Airline -->
+                            <select name="SubClassification" id="SubClassification" required="required">
+                                <option value="Adult">Adult</option>
+                                <option value="Pediatric">Pediatric</option>
+                                <option value="HIV test">HIV test</option>
+                                <option value="HIV test - Ancillary">HIV test - Ancillary</option>
+                                <option value="Malaria">Malaria</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">ProductGroup</h5>
+                            <!-- Airline -->
+                            <select name="ProductGroup" id="ProductGroup" required="required">
+                                <option value="ARV">ARV</option>
+                                <option value="HRDT">HRDT</option>
+                                <option value="ANTM">ANTM</option>
+                                <option value="MRDT">MRDT</option>
+                                <option value="Other">Other</option>
+                
+                                
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            <div class="col-sm-6">
+                <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">ShipmentMode</h5>
+                            <!-- Airline -->
+                            <select name="ShipmentMode" id="ShipmentMode" required="required">
+                                <option value="Air">Air</option>
+                                <option value="Truck">Truck</option>
+                                <option value="Ocean">Ocean</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="col-sm-6">
+                <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">FirstLineDesignation</h5>
+                            <!-- Airline -->
+                            <select name="FirstLineDesignation" id="FirstLineDesignation" required="required">
+                                <option value="True">True</option>
+                                <option value="False">False</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+
+
+            <br>
+            <br>
+            <br>
+            <!-- Submit -->
+            <input type="submit" value="Submit" class="btn btn-secondary">
+        </form>
+
+        <br>
+        <br>
+        <h3>{{ prediction_text }}</h3>
+
+        <br>
+        <br>
+
+    </div>
+
+
+
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
